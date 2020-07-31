@@ -24,6 +24,7 @@ function myreducer(state = initState, action) {
 // - store 안에는 현재 앱의 상태와 리듀서가 들어가 있음.
 // - stoe API(subscribe, dispatch, getState)
 const store = createStore(myreducer);
+
 // NOTE (6) Subscribe
 // - store api 중 하나로, 함수 형태로 값을 받아옴.
 // - subscribe 안에 특정 함수를 전달하면, 액션이 디스패치 될 때 마다 전달해준 함수를 호출함.
