@@ -9,7 +9,14 @@ const initState = {
 // - 변화를 일으키는 순수 함수로 state,action 두 개의 매개변수를 받음.
 // -  현재 상태와, 전달 받은 액션을 참조해서 "새로운 상태"를 만들어서 반환함.
 function myreducer(state = initState, action) {
-  console.log(action);
+  // console.log(action);
+
+  if (action.type === 'ADD_TODO') {
+    return {
+      // NOTE (5) state.todos add item
+      todos: [...state.todos, action.text],
+    };
+  }
 }
 
 // NOTE (1) create redux store
@@ -17,6 +24,13 @@ function myreducer(state = initState, action) {
 // - store 안에는 현재 앱의 상태와 리듀서가 들어가 있음.
 // - stoe API(subscribe, dispatch, getState)
 const store = createStore(myreducer);
+// NOTE (6) Subscribe
+// - store api 중 하나로, 함수 형태로 값을 받아옴.
+// - subscribe 안에 특정 함수를 전달하면, 액션이 디스패치 될 때 마다 전달해준 함수를 호출함.
+store.subscribe(() => {
+  console.log('state todos update');
+  console.log(store.getState());
+});
 
 // NOTE (4) creat action
 // - 상태를 변화를 줄 때, 액션을 발생 시킴.
