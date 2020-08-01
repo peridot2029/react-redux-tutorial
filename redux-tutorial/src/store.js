@@ -9,12 +9,18 @@ const initState = {
 // - 변화를 일으키는 순수 함수로 state,action 두 개의 매개변수를 받음.
 // -  현재 상태와, 전달 받은 액션을 참조해서 "새로운 상태"를 만들어서 반환함.
 function myreducer(state = initState, action) {
-  // console.log(action);
-
   if (action.type === 'ADD_TODO') {
     return {
       // NOTE (5) state.todos add item
+      ...state,
       todos: [...state.todos, action.text],
+    };
+  }
+  if (action.type === 'ADD_POST') {
+    return {
+      // NOTE (5) state.posts add item
+      ...state,
+      posts: [...state.posts, action.post],
     };
   }
 }
@@ -33,13 +39,8 @@ store.subscribe(() => {
   console.log(store.getState());
 });
 
-// NOTE (4) creat action
-// - 상태를 변화를 줄 때, 액션을 발생 시킴.
-// - 하나의 객체로 표현되므로 "type"은 필수적으로 가지고 있어야 한다.
-const todoAction = { type: 'ADD_TODO', text: 'todo add items' };
-
-// NOTE (4-1) dispatch(action)
-// - 상태 변경 일으키기 위해서는 액션을 내보냄.
-store.dispatch(todoAction);
+// NOTE (4) dispath(action)
+store.dispatch({ type: 'ADD_TODO', text: 'todo add items' });
+store.dispatch({ type: 'ADD_POST', post: 'todo item posts' });
 
 export default store;
