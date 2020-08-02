@@ -1,4 +1,21 @@
-.App {
-  text-align: center;
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  background: #eee;
 }
-
+ul,
+li {
+  list-style: none;
+}
+div,
+span,
+ul,
+li,
+figcaption,
+figure,
+span,
+strong {
+  margin: 0;
+  padding: 0;
+}
