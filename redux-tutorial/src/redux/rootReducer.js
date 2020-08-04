@@ -1,31 +1,37 @@
-// NOTE (2) initial state value
 const initState = {
   posts: [
     {
-      id: 1,
-      title: 'Espresso Frappuccino',
-      url: 'https://i.postimg.cc/8c9Fyjp6/espresso-frappuccino.jpg',
-      content:
-        'A frappuccino that enjoys the intensity of espresso and a bit of sweetness coolly.Choose the syrup for light frappuccino-Low Sugar is 25% less on the size of the Tall.',
+      id: '1',
+      title: 'Squirtle Laid an Egg',
+      body:
+        'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consequatur voluptate laborum perferendis, enim repellendus ipsam sunt autem at odit dolorum, voluptatum suscipit iste harum cum magni itaque animi laudantium fugiat',
     },
     {
-      id: 2,
-      title: 'Dolce Latte',
-      url: 'https://i.postimg.cc/d3Lkm8YF/dolce-latte.jpg',
-      content: 'A sweet drink with deep espresso and neat fat-free milk. ',
+      id: '2',
+      title: 'Charmander Laid an Egg',
+      body:
+        'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consequatur voluptate laborum perferendis, enim repellendus ipsam sunt autem at odit dolorum, voluptatum suscipit iste harum cum magni itaque animi laudantium fugiat',
     },
     {
-      id: 3,
-      title: 'Caffe Mocha',
-      url: 'https://i.postimg.cc/wxGsxbXj/caffe-mocha.jpg',
-      content: 'Espresso with whipped cream on mocha syrup and steam milk.',
+      id: '3',
+      title: 'a Helix Fossil was Found',
+      body:
+        'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consequatur voluptate laborum perferendis, enim repellendus ipsam sunt autem at odit dolorum, voluptatum suscipit iste harum cum magni itaque animi laudantium fugiat',
     },
   ],
 };
 
-// NOTE (1) Root Reducer
-// - 리덕스를 사용할 때, 여러 개의 리듀서를 만들고 이를 합쳐서 "Root Reducer"를 만듬
 const rootReducer = (state = initState, action) => {
+  console.log(action);
+  if (action.type === 'DELETE_POST') {
+    let newPosts = state.posts.filter(post => {
+      return post.id !== action.id;
+    });
+    return {
+      ...state,
+      posts: newPosts,
+    };
+  }
   return state;
 };
 
