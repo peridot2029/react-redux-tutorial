@@ -1,6 +1,7 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-## React routing simple code url
-[https://stackblitz.com/edit/create-react-simple-routing](react-routing)
+
+## Simple routing code before react router
+[react-rouing](https://stackblitz.com/edit/create-react-simple-routing)
 
 ## Available Scripts
 
