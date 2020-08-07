@@ -1,12 +1,12 @@
 import React from 'react';
-import store from './store';
-import './App.css';
+import CounterContainer from './containers/CounterContainer';
 
 function App() {
   return (
-    <div className='App'>
-      <h1>Redux Basics</h1>
-    </div>
+    <>
+      <h2>Counter</h2>
+      <CounterContainer />
+    </>
   );
 }
 
